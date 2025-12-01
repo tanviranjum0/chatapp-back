@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index",
-    "watch": "node --watch index"
+    "start": "node index",
+    "watch": "node --watch index",
+    "dev": "nodemon index"
   },
   "keywords": [],
   "author": "",

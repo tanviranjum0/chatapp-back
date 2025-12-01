@@ -1,8 +1,8 @@
 const Redis = require("ioredis");
 const redisClient = new Redis({
   username: "default",
-  password: REDIS_PASSWORD,
-  host: REDIS_HOST,
-  port: REDIS_PORT,
+  password: process.env.REDIS_PASSWORD,
+  host: process.env.REDIS_HOST,
+  port: process.env.REDIS_PORT,
 });
 module.exports = redisClient;
