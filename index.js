@@ -21,7 +21,11 @@ app.set("trust proxy", 1);
 dotenv.config();
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "https://chatapp-front-six.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://chatapp-front-six.vercel.app",
+      "https://chatapp-back-qfx6.onrender.com",
+    ],
     credentials: true,
   },
 });
@@ -30,7 +34,11 @@ app.use(sessionMiddleware());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://chatapp-front-six.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://chatapp-front-six.vercel.app",
+      "https://chatapp-back-qfx6.onrender.com",
+    ],
     credentials: true,
   })
 );
@@ -45,4 +53,6 @@ io.on("connect", (socket) => {
   socket.on("disconnecting", () => onDisconnect(socket));
   socket.on("dm", (message) => dm(socket, message));
 });
-server.listen(process.env.PORT, () => console.log("listening on port 4000"));
+server.listen(process.env.PORT, () =>
+  console.log(`listening on port ${process.env.PORT}`)
+);
