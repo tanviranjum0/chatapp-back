@@ -20,6 +20,7 @@ app.use(express.json());
 app.set("trust proxy", 1);
 dotenv.config();
 const io = new Server(server, {
+  allowEIO3: true,
   cors: {
     origin: [
       "http://localhost:5173",
