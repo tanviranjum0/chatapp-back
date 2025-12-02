@@ -24,7 +24,7 @@ const io = new Server(server, {
     origin: [
       "http://localhost:5173",
       "https://chatapp-front-six.vercel.app",
-      ,
+      "https://chatapp-tanvir.netlify.app/",
     ],
     credentials: true,
   },
@@ -37,6 +37,8 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://chatapp-front-six.vercel.app",
+      "https://chatapp-tanvir.netlify.app/",
+
       ,
     ],
     credentials: true,
