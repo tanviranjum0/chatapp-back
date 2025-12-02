@@ -24,7 +24,7 @@ const io = new Server(server, {
     origin: [
       "http://localhost:5173",
       "https://chatapp-front-six.vercel.app",
-      "https://chatapp-back-qfx6.onrender.com",
+      ,
     ],
     credentials: true,
   },
@@ -37,7 +37,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://chatapp-front-six.vercel.app",
-      "https://chatapp-back-qfx6.onrender.com",
+      ,
     ],
     credentials: true,
   })
@@ -52,6 +52,16 @@ io.on("connect", (socket) => {
   });
   socket.on("disconnecting", () => onDisconnect(socket));
   socket.on("dm", (message) => dm(socket, message));
+});
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Credentials", true);
+  next();
 });
 server.listen(process.env.PORT, () =>
   console.log(`listening on port ${process.env.PORT}`)
